@@ -20,26 +20,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Welcome to KunPeng Maker Club!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KunPeng Maker Club">
-<meta property="og:url" content="http://example.com/archives/index.html">
+    <meta name="description" content="C语言sqrt()函数实现计算x^2^ &#x3D; n的解，令f(x)&#x3D;x^2^-n，相当于求解f(x)&#x3D;0的解，如i下图所示。首先取x0，如果x0不是解，做一个经过(x0,f(x0))这个点的切线，与x轴的交点为x1。 同样的道理，如果x1不是解，做一个经过(x1,f(x1))这个点的切线，与x轴的交点为x2。 以此类推。 以这样的方式得到的xi会无限趋近于f(x)&amp;#x3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言sqrt()函数实现">
+<meta property="og:url" content="http://example.com/2024/05/01/sqrt/index.html">
 <meta property="og:site_name" content="KunPeng Maker Club">
-<meta property="og:description" content="Welcome to KunPeng Maker Club!">
+<meta property="og:description" content="C语言sqrt()函数实现计算x^2^ &#x3D; n的解，令f(x)&#x3D;x^2^-n，相当于求解f(x)&#x3D;0的解，如i下图所示。首先取x0，如果x0不是解，做一个经过(x0,f(x0))这个点的切线，与x轴的交点为x1。 同样的道理，如果x1不是解，做一个经过(x1,f(x1))这个点的切线，与x轴的交点为x2。 以此类推。 以这样的方式得到的xi会无限趋近于f(x)&amp;#x3">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2024/05/01/sqrt/image.png">
+<meta property="article:published_time" content="2024-05-01T00:36:49.000Z">
+<meta property="article:modified_time" content="2024-05-01T01:02:05.938Z">
 <meta property="article:author" content="鲲鹏创客设">
-<meta property="article:tag" content="Welcome to KunPeng Maker Club">
+<meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/05/01/sqrt/image.png">
 
 
-<link rel="canonical" href="http://example.com/archives/">
+<link rel="canonical" href="http://example.com/2024/05/01/sqrt/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"archives/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/05/01/sqrt/","path":"2024/05/01/sqrt/","title":"C语言sqrt()函数实现"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Archive | KunPeng Maker Club</title>
+<title>C语言sqrt()函数实现 | KunPeng Maker Club</title>
   
 
 
@@ -72,7 +76,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">KunPeng Maker Club</h1>
+      <p class="site-title">KunPeng Maker Club</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">KunPeng Maker Club</p>
@@ -126,7 +130,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -139,6 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C%E8%AF%AD%E8%A8%80sqrt-%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">C语言sqrt()函数实现</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -176,232 +181,112 @@
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 11 posts in total. Keep on posting.</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/01/sqrt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="鲲鹏创客设">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KunPeng Maker Club">
+      <meta itemprop="description" content="Welcome to KunPeng Maker Club!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="C语言sqrt()函数实现 | KunPeng Maker Club">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C语言sqrt()函数实现
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2024<span class="collection-year-count">11</span></span>
+
+      <time title="Created: 2024-05-01 08:36:49 / Modified: 09:02:05" itemprop="dateCreated datePublished" datetime="2024-05-01T08:36:49+08:00">2024-05-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="C语言sqrt-函数实现"><a href="#C语言sqrt-函数实现" class="headerlink" title="C语言sqrt()函数实现"></a>C语言sqrt()函数实现</h1><p>计算x^2^ &#x3D; n的解，令f(x)&#x3D;x^2^-n，相当于求解f(x)&#x3D;0的解，如i下图所示。<br><img src="/2024/05/01/sqrt/image.png" alt="牛顿迭代法"><br>首先取x<del>0</del>，如果x<del>0</del>不是解，做一个经过(x<del>0</del>,f(x<del>0</del>))这个点的切线，与x轴的交点为x<del>1</del>。</p>
+<p>同样的道理，如果x<del>1</del>不是解，做一个经过(x1,f(x1))这个点的切线，与x轴的交点为x<del>2</del>。</p>
+<p>以此类推。</p>
+<p>以这样的方式得到的x<del>i</del>会无限趋近于f(x)&#x3D;0的解。</p>
+<p>判断x<del>i</del>是否是f(x)&#x3D;0的解有两种方法：</p>
+<p>一是直接计算f(x<del>i</del>)的值判断是否为0，二是判断前后两个解x<del>i</del>和x<del>i</del>-1是否无限接近。</p>
+<p>经过(x<del>i</del>, f(x<del>i</del>))这个点的切线方程为f(x) &#x3D; f(x<del>i</del>) + f’(x<del>i</del>)(x - x<del>i</del>)，其中f’(x)为f(x)的导数，本题中为2x。令切线方程等于0，即可求出x<del>i</del>+1&#x3D;x<del>i</del> - f(x<del>i</del>) &#x2F; f’(x<del>i</del>)。</p>
+<p>继续化简，x<del>i</del>+1&#x3D;x<del>i</del> - (x<del>i</del>^2^ - n) &#x2F; (2x<del>i</del>) &#x3D; x<del>i</del> - x<del>i</del> &#x2F; 2 + n &#x2F; (2x<del>i</del>) &#x3D; x<del>i</del> &#x2F; 2 + n &#x2F; 2x<del>i</del> &#x3D; (x<del>i</del> + n&#x2F;x<del>i</del>) &#x2F; 2。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="title function_">sqrt</span><span class="params">(<span class="type">double</span> x)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">0</span>) </span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">double</span> last = <span class="number">0.0</span>;</span><br><span class="line">    <span class="type">double</span> res = <span class="number">1.0</span>;</span><br><span class="line">    <span class="keyword">while</span> (res != last) &#123;</span><br><span class="line">        last = res;</span><br><span class="line">        res = (res + x / res) / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于牛顿迭代法，可以参考<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E6%B3%95">百度百科</a>。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-05-01T21:03:45+08:00"
-              content="2024-05-01">
-          05-01
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/05/01/the-mythical-man-month/" itemprop="url">
-            <span itemprop="name">最全|《人月神话》书摘，看这一篇就够了</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C-C/" rel="tag"># C/C++</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/05/01/linked-list/" rel="prev" title="链表">
+                  <i class="fa fa-angle-left"></i> 链表
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/05/01/greedy/" rel="next" title="贪心算法">
+                  贪心算法 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-05-01T19:04:02+08:00"
-              content="2024-05-01">
-          05-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/05/01/backtracting/" itemprop="url">
-            <span itemprop="name">回溯算法</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-05-01T12:39:00+08:00"
-              content="2024-05-01">
-          05-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/05/01/greedy/" itemprop="url">
-            <span itemprop="name">贪心算法</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-05-01T08:36:49+08:00"
-              content="2024-05-01">
-          05-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/05/01/sqrt/" itemprop="url">
-            <span itemprop="name">C语言sqrt()函数实现</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-05-01T08:07:21+08:00"
-              content="2024-05-01">
-          05-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/05/01/linked-list/" itemprop="url">
-            <span itemprop="name">链表</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-04-30T22:19:58+08:00"
-              content="2024-04-30">
-          04-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/04/30/graph/" itemprop="url">
-            <span itemprop="name">图论算法</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-04-30T15:47:06+08:00"
-              content="2024-04-30">
-          04-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/04/30/markdown/" itemprop="url">
-            <span itemprop="name">Markdown学习笔记</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-04-30T15:43:26+08:00"
-              content="2024-04-30">
-          04-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/04/30/type/" itemprop="url">
-            <span itemprop="name">读懂C/C++类型声明的黄金法则</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-04-30T15:42:32+08:00"
-              content="2024-04-30">
-          04-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/04/30/git/" itemprop="url">
-            <span itemprop="name">Git学习笔记</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-04-30T15:37:41+08:00"
-              content="2024-04-30">
-          04-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/04/30/1024/" itemprop="url">
-            <span itemprop="name">什么说10月24日是程序员的节日？</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+
+
+
 
 </div>
   </main>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="[https:&#x2F;&#x2F;git-scm.com&#x2F;] Git学习笔记1. Ubuntu环境下安装Git1sudo apt-get install git  2. 产看Git版本号1git -v 或者 1git --version  3. 绑定用户信息 绑定用户名1git config --global user.name &quot;这里填你的名字&quot; 绑定用户邮箱1git config --gl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git学习笔记">
+<meta property="og:url" content="http://example.com/2024/04/30/git/index.html">
+<meta property="og:site_name" content="KunPeng Maker Club">
+<meta property="og:description" content="[https:&#x2F;&#x2F;git-scm.com&#x2F;] Git学习笔记1. Ubuntu环境下安装Git1sudo apt-get install git  2. 产看Git版本号1git -v 或者 1git --version  3. 绑定用户信息 绑定用户名1git config --global user.name &quot;这里填你的名字&quot; 绑定用户邮箱1git config --gl">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://git-scm.com/images/logo@2x.png">
+<meta property="article:published_time" content="2024-04-30T07:42:32.000Z">
+<meta property="article:modified_time" content="2024-04-30T20:36:38.167Z">
+<meta property="article:author" content="鲲鹏创客设">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://git-scm.com/images/logo@2x.png">
+
+
+<link rel="canonical" href="http://example.com/2024/04/30/git/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/04/30/git/","path":"2024/04/30/git/","title":"Git学习笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Git学习笔记 | KunPeng Maker Club</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">KunPeng Maker Club</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">KunPeng Maker Club</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">Git学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Git"><span class="nav-number">1.1.</span> <span class="nav-text">1. Ubuntu环境下安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BA%A7%E7%9C%8BGit%E7%89%88%E6%9C%AC%E5%8F%B7"><span class="nav-number">1.2.</span> <span class="nav-text">2. 产看Git版本号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%BB%91%E5%AE%9A%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">1.3.</span> <span class="nav-text">3. 绑定用户信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%AD%A3%E5%BC%8F%E4%BD%BF%E7%94%A8Git"><span class="nav-number">1.4.</span> <span class="nav-text">4.正式使用Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%9C%AC%E5%9C%B0%E7%9A%84Git%E9%A1%B9%E7%9B%AE%E4%BB%93%E5%BA%93"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. 创建一个本地的Git项目仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. 提交文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9F%A5%E7%9C%8B%E8%AE%B0%E5%BD%95"><span class="nav-number">1.4.3.</span> <span class="nav-text">3. 查看记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BB%A3%E7%A0%81%E5%9B%9E%E6%BA%AF"><span class="nav-number">1.4.4.</span> <span class="nav-text">4. 代码回溯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%88%86%E6%94%AF"><span class="nav-number">1.4.5.</span> <span class="nav-text">5. 分支</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">鲲鹏创客设</p>
+  <div class="site-description" itemprop="description">Welcome to KunPeng Maker Club!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/30/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="鲲鹏创客设">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KunPeng Maker Club">
+      <meta itemprop="description" content="Welcome to KunPeng Maker Club!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Git学习笔记 | KunPeng Maker Club">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git学习笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-04-30 15:42:32" itemprop="dateCreated datePublished" datetime="2024-04-30T15:42:32+08:00">2024-04-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-05-01 04:36:38" itemprop="dateModified" datetime="2024-05-01T04:36:38+08:00">2024-05-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Skills/" itemprop="url" rel="index"><span itemprop="name">Skills</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><img src="https://git-scm.com/images/logo@2x.png" alt="Git">[<a target="_blank" rel="noopener" href="https://git-scm.com/]">https://git-scm.com/]</a></p>
+<h1 id="Git学习笔记"><a href="#Git学习笔记" class="headerlink" title="Git学习笔记"></a>Git学习笔记</h1><h2 id="1-Ubuntu环境下安装Git"><a href="#1-Ubuntu环境下安装Git" class="headerlink" title="1. Ubuntu环境下安装Git"></a>1. Ubuntu环境下安装Git</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-产看Git版本号"><a href="#2-产看Git版本号" class="headerlink" title="2. 产看Git版本号"></a>2. 产看Git版本号</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git -v</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-绑定用户信息"><a href="#3-绑定用户信息" class="headerlink" title="3. 绑定用户信息"></a>3. 绑定用户信息</h2><ol>
+<li>绑定用户名<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;这里填你的名字&quot;</span><br></pre></td></tr></table></figure></li>
+<li>绑定用户邮箱<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;这里填你的邮箱&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="4-正式使用Git"><a href="#4-正式使用Git" class="headerlink" title="4.正式使用Git"></a>4.正式使用Git</h2><h3 id="1-创建一个本地的Git项目仓库"><a href="#1-创建一个本地的Git项目仓库" class="headerlink" title="1. 创建一个本地的Git项目仓库"></a>1. 创建一个本地的Git项目仓库</h3><ol>
+<li>clone别人的仓库<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone [项目地址]</span><br></pre></td></tr></table></figure></li>
+<li>创建版本库<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init #在你的项目文件夹下执行该指令</span><br></pre></td></tr></table></figure>
+Git将会在此文件夹下自动创建<code>.git</code>文件</li>
+</ol>
+<h3 id="2-提交文件"><a href="#2-提交文件" class="headerlink" title="2. 提交文件"></a>2. 提交文件</h3><ol>
+<li>把代码提交到仓库<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add [文件名] #执行该指令Git将把修改的代码添加到暂存区</span><br></pre></td></tr></table></figure>
+另外执行下面指令Git将把该目录下所有文件添加到暂存区<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure></li>
+<li>放入仓库<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;备注内容&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-查看记录"><a href="#3-查看记录" class="headerlink" title="3. 查看记录"></a>3. 查看记录</h3><ol>
+<li><p>查看提交记录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+<p>若想查看更详细的信息，执行下面指令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --static # 查看提交时修改了哪些文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看某次提交修改的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff [commit id]</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="4-代码回溯"><a href="#4-代码回溯" class="headerlink" title="4. 代码回溯"></a>4. 代码回溯</h3><ol>
+<li>回溯到某个节点<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard [commit id]</span><br></pre></td></tr></table></figure>
+或者是<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout [commit id]</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="5-分支"><a href="#5-分支" class="headerlink" title="5. 分支"></a>5. 分支</h3><ol>
+<li>创建分支<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b [branch name]</span><br></pre></td></tr></table></figure></li>
+<li>查看分支<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure></li>
+<li>切换分支<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout [branch name]</span><br></pre></td></tr></table></figure></li>
+<li>合并分支<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge [branch name] #执行该命令前先切换到你要合并的分支，如master分支</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Git/" rel="tag"># Git</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/04/30/1024/" rel="prev" title="什么说10月24日是程序员的节日？">
+                  <i class="fa fa-angle-left"></i> 什么说10月24日是程序员的节日？
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/04/30/type/" rel="next" title="读懂C/C++类型声明的黄金法则">
+                  读懂C/C++类型声明的黄金法则 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">鲲鹏创客设</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

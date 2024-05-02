@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="贪心算法算法思想每一步在选择中，都采取当前状态下的最优选择，即做到了局部最优，通过这一列的局部最优选择，最终得到了全局最优解。 例题排队打水问题 题目描述 有n个人排队到r个水龙头去打水，他们装满水桶的时间t1,t2,…,tnt1​,t2​,…,tn​ 为整数且各不相等，应如何安排他们的打水顺序才能使他们花费的总时间最少？ 每个人打水的时间 &#x3D; 排队的时间 + 实际打水的时间，本题假设一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="贪心算法">
+<meta property="og:url" content="http://example.com/2024/05/01/greedy/index.html">
+<meta property="og:site_name" content="KunPeng Maker Club">
+<meta property="og:description" content="贪心算法算法思想每一步在选择中，都采取当前状态下的最优选择，即做到了局部最优，通过这一列的局部最优选择，最终得到了全局最优解。 例题排队打水问题 题目描述 有n个人排队到r个水龙头去打水，他们装满水桶的时间t1,t2,…,tnt1​,t2​,…,tn​ 为整数且各不相等，应如何安排他们的打水顺序才能使他们花费的总时间最少？ 每个人打水的时间 &#x3D; 排队的时间 + 实际打水的时间，本题假设一">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-01T04:39:00.000Z">
+<meta property="article:modified_time" content="2024-05-01T08:38:12.905Z">
+<meta property="article:author" content="鲲鹏创客设">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2024/05/01/greedy/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/05/01/greedy/","path":"2024/05/01/greedy/","title":"贪心算法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>贪心算法 | KunPeng Maker Club</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">KunPeng Maker Club</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">KunPeng Maker Club</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">贪心算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3"><span class="nav-number">1.1.</span> <span class="nav-text">算法思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E9%98%9F%E6%89%93%E6%B0%B4%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.1.</span> <span class="nav-text">排队打水问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%B2%B3%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E9%97%B4"><span class="nav-number">1.2.2.</span> <span class="nav-text">过河的最短时间</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">鲲鹏创客设</p>
+  <div class="site-description" itemprop="description">Welcome to KunPeng Maker Club!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/01/greedy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="鲲鹏创客设">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KunPeng Maker Club">
+      <meta itemprop="description" content="Welcome to KunPeng Maker Club!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="贪心算法 | KunPeng Maker Club">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          贪心算法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-05-01 12:39:00 / Modified: 16:38:12" itemprop="dateCreated datePublished" datetime="2024-05-01T12:39:00+08:00">2024-05-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Algorithms/" itemprop="url" rel="index"><span itemprop="name">Algorithms</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h1><h2 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h2><p>每一步在选择中，都采取当前状态下的最优选择，即做到了局部最优，通过这一列的局部最优选择，最终得到了全局最优解。</p>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="排队打水问题"><a href="#排队打水问题" class="headerlink" title="排队打水问题"></a>排队打水问题</h3><blockquote>
+<p><strong>题目描述</strong></p>
+<p>有n个人排队到r个水龙头去打水，他们装满水桶的时间t1,t2,…,tnt1​,t2​,…,tn​ 为整数且各不相等，应如何安排他们的打水顺序才能使他们花费的总时间最少？</p>
+<p>每个人打水的时间 &#x3D; 排队的时间 + 实际打水的时间，本题假设一个人打好水，排在他后面的人接着打水的这个切换过程不消耗时间。</p>
+<p>比如，有2个人A和B，他们打水的时间分别是3和2 ，只有1个水龙头，这时，如果A先打水B后打水，那么A和B打水的时间分别为3、3+2（B排队3分钟）。</p>
+<p>因此，所有人打水的总时间就是每个人的打水时间及每个人的排队时间的总和。<br><strong>输入</strong></p>
+<p>第1行，两个整数n(1≤n≤5001≤n≤500)和r(1≤r≤100)。</p>
+<p>第2行,n个正整数t1,t2,…,tn,(1≤ti≤100)表示每个人装满水桶的时间。<br><strong>输出</strong></p>
+<p>1行，一个正整数，表示他们花费的最少总时间。<br><strong>样例</strong></p>
+<p><em>输入</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4 2</span><br><span class="line">2 6 4 5</span><br></pre></td></tr></table></figure>
+<p><em>输出</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">23</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>代码编写</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> a[<span class="number">510</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">	<span class="type">int</span> r, n, sum = <span class="number">0</span>;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; r;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		cin &gt;&gt; a[i];</span><br><span class="line">	<span class="built_in">sort</span>(a, a + n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (i &gt;= r)</span><br><span class="line">			a[i] = a[i] + a[i - r];</span><br><span class="line">		sum += a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; sum &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="过河的最短时间"><a href="#过河的最短时间" class="headerlink" title="过河的最短时间"></a>过河的最短时间</h3><blockquote>
+<p><strong>题目描述</strong></p>
+<p>在漆黑的夜里，NN 位旅行者来到了一座狭窄而且没有护栏的桥边。如果不借助手电筒的话，大家是无论如何也不敢过桥去的。</p>
+<p>不幸的是，NN 个人一共只带了一只手电筒，而桥窄得只够让两个人同时过。</p>
+<p>如果各自单独过桥的话，NN 人所需要的时间已知；而如果两人同时过桥，所需要的时间就是走得比较慢的那个人单独行动时所需的时间。</p>
+<p>问题是，如何设计一个方案，让这 NN 人尽快过桥，计算成绩这 NN 个人的最短过桥时间。</p>
+<p>比如：有四个人甲乙丙丁，他们过河需要的时间分别为，甲：11，乙：22，丙：55，丁：1010。</p>
+<p>第一种办法：最快的 22 个人先过桥，然后让跑的最快的人来回去接剩下的人：</p>
+<p>先让甲乙过去（22 分钟），甲回来（11 分钟），甲丙过去（55 分钟），甲回来（11 分钟），甲丁再过去（1010 分钟），总共需要 1919 分钟就可以让四个人都过去。</p>
+<p>第二种办法：让最慢的地 22 个人一起过桥，减少最慢的人在桥上的次数。</p>
+<p>先让甲乙过去（22 分钟），甲回来（11 分钟），丙丁过去（1010 分钟），乙回来（22 分钟），甲乙再过去（22 分钟），总共需要 1717 分钟可以让四个人都过去。</p>
+<p>那么最慢的时间就是需要 1717 分钟！<br><strong>输入</strong></p>
+<p>每组测试数据的第一行是一个整数 NN (1≤N≤10001≤N≤1000)，表示共有 NN 个人要过河。</p>
+<p>每组测试数据的第二行是 NN 个整数 SiSi​,表示这 NN 个人过河所需要花时间。(0&lt;Si≤1000&lt;Si​≤100)<br><strong>输出</strong></p>
+<p>所有人过河的最短时间。<br><strong>样例</strong><br><em>输入</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">1 2 5 10</span><br></pre></td></tr></table></figure>
+<p><em>输出</em>_</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">17</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>代码编写</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, s[<span class="number">100001</span>], sum = <span class="number">0</span>;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        cin &gt;&gt; s[i];</span><br><span class="line">    <span class="built_in">sort</span>(s, s + n);</span><br><span class="line">    <span class="keyword">while</span> (n &gt; <span class="number">3</span>) &#123;</span><br><span class="line">        sum += <span class="built_in">min</span>(s[<span class="number">1</span>] * <span class="number">2</span> + s[<span class="number">0</span>] + s[n - <span class="number">1</span>], s[<span class="number">0</span>] * <span class="number">2</span> + s[n - <span class="number">2</span>] + s[n - <span class="number">1</span>]);</span><br><span class="line">        n -= <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">3</span>)</span><br><span class="line">        sum += s[<span class="number">0</span>] + s[<span class="number">1</span>] + s[<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">2</span>)</span><br><span class="line">        sum += s[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">        sum += s[<span class="number">0</span>];</span><br><span class="line">    cout &lt;&lt; sum &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/05/01/sqrt/" rel="prev" title="C语言sqrt()函数实现">
+                  <i class="fa fa-angle-left"></i> C语言sqrt()函数实现
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/05/01/backtracting/" rel="next" title="回溯算法">
+                  回溯算法 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">鲲鹏创客设</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

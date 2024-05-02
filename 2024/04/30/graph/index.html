@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="图论算法一、图的定义和术语图的概念  一个图，由顶点(vertex)集和边(edge)集E组成。每一条边，连接了两个顶点，也就是一个点对。  有向图 无向图  如果点对之后是分次序的（比如仅限于从A点到B点），那么这这个图就是有向图(digraph)。此时我们可以把边叫做弧(arc)。 如果没有次序的差别，那么就是无向图。   连通 强连通 弱连通  在上图的无向图中，由B到A，可以走B→A，也可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图论算法">
+<meta property="og:url" content="http://example.com/2024/04/30/graph/index.html">
+<meta property="og:site_name" content="KunPeng Maker Club">
+<meta property="og:description" content="图论算法一、图的定义和术语图的概念  一个图，由顶点(vertex)集和边(edge)集E组成。每一条边，连接了两个顶点，也就是一个点对。  有向图 无向图  如果点对之后是分次序的（比如仅限于从A点到B点），那么这这个图就是有向图(digraph)。此时我们可以把边叫做弧(arc)。 如果没有次序的差别，那么就是无向图。   连通 强连通 弱连通  在上图的无向图中，由B到A，可以走B→A，也可">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2024/04/30/graph/1.jpg">
+<meta property="og:image" content="http://example.com/2024/04/30/graph/2.jpg">
+<meta property="og:image" content="http://example.com/2024/04/30/graph/3.jpg">
+<meta property="og:image" content="http://example.com/2024/04/30/graph/4.jpg">
+<meta property="og:image" content="http://example.com/2024/04/30/graph/5.jpg">
+<meta property="og:image" content="http://example.com/2024/04/30/graph/6.jpg">
+<meta property="og:image" content="http://example.com/2024/04/30/graph/7.jpg">
+<meta property="og:image" content="http://example.com/2024/04/30/graph/9.jpg">
+<meta property="og:image" content="http://example.com/2024/04/30/graph/8.jpg">
+<meta property="article:published_time" content="2024-04-30T14:19:58.000Z">
+<meta property="article:modified_time" content="2024-05-01T00:08:01.466Z">
+<meta property="article:author" content="鲲鹏创客设">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/04/30/graph/1.jpg">
+
+
+<link rel="canonical" href="http://example.com/2024/04/30/graph/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/04/30/graph/","path":"2024/04/30/graph/","title":"图论算法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>图论算法 | KunPeng Maker Club</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">KunPeng Maker Club</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">KunPeng Maker Club</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">图论算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9B%BE%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E6%9C%AF%E8%AF%AD"><span class="nav-number">1.1.</span> <span class="nav-text">一、图的定义和术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.</span> <span class="nav-text">二、图的存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E6%B3%95"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 邻接矩阵法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%82%BB%E6%8E%A5%E8%A1%A8%E6%B3%95"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 邻接表法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%9B%BE%E7%9A%84%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">三、图的搜索算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%EF%BC%88DFS%EF%BC%89"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 深度优先搜索（DFS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 广度优先搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. 拓扑排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%AE%97%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">四、最小生成树算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Prim%E7%AE%97%E6%B3%95"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. Prim算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Kruskal%E7%AE%97%E6%B3%95"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. Kruskal算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text">五、最短路径算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Dijkstra%E7%AE%97%E6%B3%95"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. Dijkstra算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Floyd%E7%AE%97%E6%B3%95"><span class="nav-number">1.5.2.</span> <span class="nav-text">2. Floyd算法</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">鲲鹏创客设</p>
+  <div class="site-description" itemprop="description">Welcome to KunPeng Maker Club!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/30/graph/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="鲲鹏创客设">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KunPeng Maker Club">
+      <meta itemprop="description" content="Welcome to KunPeng Maker Club!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="图论算法 | KunPeng Maker Club">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          图论算法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-04-30 22:19:58" itemprop="dateCreated datePublished" datetime="2024-04-30T22:19:58+08:00">2024-04-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-05-01 08:08:01" itemprop="dateModified" datetime="2024-05-01T08:08:01+08:00">2024-05-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Data-Structures/" itemprop="url" rel="index"><span itemprop="name">Data Structures</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="图论算法"><a href="#图论算法" class="headerlink" title="图论算法"></a>图论算法</h1><h2 id="一、图的定义和术语"><a href="#一、图的定义和术语" class="headerlink" title="一、图的定义和术语"></a>一、图的定义和术语</h2><p><strong>图的概念</strong></p>
+<blockquote>
+<p>一个图，由顶点(vertex)集和边(edge)集E组成。每一条边，连接了两个顶点，也就是一个点对。</p>
+</blockquote>
+<p><strong>有向图 无向图</strong></p>
+<blockquote>
+<p>如果点对之后是分次序的（比如仅限于从<code>A</code>点到<code>B</code>点），那么这这个图就是有向图(digraph)。此时我们可以把边叫做弧(arc)。</p>
+<p>如果没有次序的差别，那么就是无向图。</p>
+<p><img src="/2024/04/30/graph/1.jpg" alt="图-无向图和有向图"></p>
+</blockquote>
+<p><strong>连通 强连通 弱连通</strong></p>
+<blockquote>
+<p>在上图的无向图中，由<code>B</code>到<code>A</code>，可以走<code>B→A</code>，也可以走<code>B→C→A</code>，还可以走<code>B→C→D→A</code>。</p>
+<p>在上图的有向图中，由<code>B</code>到<code>A</code>，因为受到次序的限制，只能走<code>B→A</code>，<code>B→C→A</code>。</p>
+<p>对于这样的线路，除了出发的顶点和结束的顶点之外，要求经过的顶点都不相同。这样这样的一组顶点序列就叫做一条路径。</p>
+<p>对于无向图，如果任意两个顶点都能找到一条路径，这个无向图就是连通的。</p>
+<p>对于有向图，在弧方向的限制下，如果任意两个顶点都能找到一条路径，这个有向图就是强连通的。如果去掉弧的指向才能满足条件，那么就是弱连通的。</p>
+</blockquote>
+<p><strong>完全图</strong></p>
+<blockquote>
+<p>当一个图中，每一个点和任意另一个点之间都是点对（都由边连接），这个图就是完全图。</p>
+<p><img src="/2024/04/30/graph/2.jpg" alt="图-完全图"></p>
+</blockquote>
+<p><strong>网</strong></p>
+<blockquote>
+<p>网：图的边具有一定的意义，每条边都对应着一个数据，称为权，这种图被称为网。</p>
+<p>任意两个顶点都有路径相通的网，称为连通网。</p>
+</blockquote>
+<h2 id="二、图的存储结构"><a href="#二、图的存储结构" class="headerlink" title="二、图的存储结构"></a>二、图的存储结构</h2><h3 id="1-邻接矩阵法"><a href="#1-邻接矩阵法" class="headerlink" title="1. 邻接矩阵法"></a>1. 邻接矩阵法</h3><p>用一个一维数组来保存顶点的信息，用一个二维数组来保存与边相关的信息。</p>
+<ul>
+<li><strong>在无向图中</strong>，我们用<code>0</code>表示两个顶点间没有边，<code>1</code>表示这两个顶点间的边存在。<br><img src="/2024/04/30/graph/3.jpg" alt="图-邻接矩阵法的简单示例（无向图）"></li>
+<li><strong>在有向图中</strong>，我们为每一条边都加入一个权。用无穷远表示两个顶点之间没有有效的边。<br><img src="/2024/04/30/graph/4.jpg" alt="图-邻接矩阵法的例子（带权的有向图）"></li>
+</ul>
+<p>需要注意的是：<em><strong>邻接矩阵对于边数相对顶点较少的图，就是对存储空间极大的浪费。</strong></em></p>
+<h3 id="2-邻接表法"><a href="#2-邻接表法" class="headerlink" title="2. 邻接表法"></a>2. 邻接表法</h3><p>对于边的数目相对于顶点较少的图，使用邻接表。</p>
+<ul>
+<li><strong>无向图的表示</strong>：<br><img src="/2024/04/30/graph/5.jpg" alt="图-无向图的邻接表法"></li>
+<li><strong>有向图的表示</strong>（由于有向图的弧的方向性，我们需要用两个邻接表来表示一个有向图。一个邻接表，存放从这个顶点指向外部的弧形成的图，另外一个存放指向这个顶点的弧形成的图）：<br><img src="/2024/04/30/graph/6.jpg" alt="图-有向图的邻接表"></li>
+</ul>
+<p>记录顶点指向外部的图时，叫做邻接表。记录指向该顶点的弧时，叫做逆邻接表。</p>
+<h2 id="三、图的搜索算法"><a href="#三、图的搜索算法" class="headerlink" title="三、图的搜索算法"></a>三、图的搜索算法</h2><p><img src="/2024/04/30/graph/7.jpg" alt="图-示例图"></p>
+<h3 id="1-深度优先搜索（DFS）"><a href="#1-深度优先搜索（DFS）" class="headerlink" title="1. 深度优先搜索（DFS）"></a>1. 深度优先搜索（DFS）</h3><p>如上图<br>随便选择一个顶点，比如 <code>0</code>。从 <code>0</code> 开始，随便选择一个与 <code>0</code> 邻接的顶点 <code>1</code> ，继续寻找和 <code>1</code> 邻接的顶点 <code>3</code> ，继续选择与 <code>3</code> 邻接的顶点 <code>4</code> 。<code>4</code> 没有其他邻接的顶点了，于是我们返回 <code>3</code> ，<code>3</code> 还有另外一个 邻接的顶点 <code>2</code> 。<code>2</code> 本来就没有邻接顶点（考虑弧的方向），于是我们继续返回 <code>3</code> 。此时 <code>3</code> 也没有未被标记的邻接顶点了，我们返回 <code>1</code> ，同理，返回到 <code>0</code> 。这是运气比较好的状态，从这个顶点开始，深度优先搜索，就遍历了整个图。</p>
+<p>那么，如果从 <code>2</code> 开始，<code>2</code> 是没有邻接顶点的（考虑到弧的方向），于是 <code>2</code> 会被直接标记为 已遍历。但此时图没有被遍历，我们需要寻找另一个没被标记的顶点，再一次开始深度优先搜索，直到整个图都被遍历。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 这里是的DFS是把图（邻接矩阵实现）遍历了一遍 */</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">DFS</span><span class="params">(<span class="keyword">struct</span> Graph* G, <span class="type">int</span>* visited, <span class="type">int</span> index)</span> </span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%c\t&quot;</span>, G-&gt;vexs[index]);</span><br><span class="line">	visited[index] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; G-&gt;vex_num; i++)</span><br><span class="line">		<span class="keyword">if</span> (G-&gt;arcs[index][i] == <span class="number">1</span> &amp;&amp; !visited[i])</span><br><span class="line">			DFS(G, visited, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-广度优先搜索"><a href="#2-广度优先搜索" class="headerlink" title="2. 广度优先搜索"></a>2. 广度优先搜索</h3><p>如上图<br>随便选择一个顶点，比如 <code>0</code> 。 从 <code>0</code> 开始 ，<code>0</code> 的 所有邻接顶点为 <code>&#123; 1，2 &#125;</code>，<code>2</code> 的临界点合集为空，观察 <code>1 </code>。1的邻接点合集为 <code>&#123; 3 &#125;</code> ，观察 <code>3</code> ，<code>3</code> 的邻接点合集为 <code>&#123; 4 &#125;</code> （ 2已经被遍历过了所以不需要考虑 ）。此时没有未被遍历的点了，广度优先搜索结束。</p>
+<p>如果选择顶点 <code>2</code> ，从 <code>2</code>开始， <code>2</code> 的邻接点合集为空。那么继续选择另一个未被遍历的邻接点，比如 <code>0</code> ，再次开始广度优先搜索，直到遍历整个图。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 这里是的BFS是把图（邻接矩阵实现）遍历了一遍，另外借助了队列来实现 */</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">BFS</span><span class="params">(<span class="keyword">struct</span> Graph* G, <span class="type">int</span>* visited, <span class="type">int</span> index)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%c\t&quot;</span>, G-&gt;vexs[index]);</span><br><span class="line">	visited[index] = <span class="number">1</span>;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Queue</span>* <span class="title">Q</span> =</span> init_queue();</span><br><span class="line">	enqueue(Q, index);</span><br><span class="line">	<span class="keyword">while</span> (!is_empty(Q)) &#123;</span><br><span class="line">		<span class="type">int</span> i = dequeue(Q);</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; G-&gt;vex_num; j++)</span><br><span class="line">			<span class="keyword">if</span> (G-&gt;arcs[i][j] == <span class="number">1</span> &amp;&amp; !visited[j]) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%c\t&quot;</span>, G-&gt;vexs[j]);</span><br><span class="line">				visited[j] = <span class="number">1</span>;</span><br><span class="line">				enqueue(Q, j);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-拓扑排序"><a href="#3-拓扑排序" class="headerlink" title="3. 拓扑排序"></a>3. 拓扑排序</h3><p>对一个<strong>有向无环图</strong>(Directed Acyclic Graph简称DAG)<code>G</code>进行拓扑排序，是将<code>G</code>中所有顶点排成一个线性序列，使得图中任意一对顶点<code>u</code>和<code>v</code>，若边<code>(u,v)∈E(G)</code>，则<code>u</code>在线性序列中出现在<code>v</code>之前。</p>
+<p>对一个有向无环图进行拓扑排序有一个可以依照的方法，我们举个例子：<br>对下图的拓扑序列，我们找到其中任意一个<strong>没有前驱</strong>的顶点（没有以他为中点的弧的顶点），提取它放在新序列的第一个位置，然后删掉和这个顶点连接的所有弧。然后继续找此时没有前驱的顶点，重复操作直到所有顶点都被放入序列。</p>
+<p><img src="/2024/04/30/graph/9.jpg" alt="图-拓扑排序方法示例"></p>
+<p>对于图中的例子</p>
+<ul>
+<li>①我们发现<code>V6</code>是没有前驱的，提取出来，然后删掉V6连接的边。新序列：<code>V6</code></li>
+<li>②继续查看，我们发现V1也是没有前驱的。提取V1，删掉V1连接的边。新序列：<code>V6-V1</code></li>
+<li>③提取<code>V4</code>，删除边，新序列：<code>V6-V1-V4</code></li>
+<li>④提取<code>V3</code>，删除边，新序列：<code>V6-V1-V4-V3</code></li>
+<li>⑤提取<code>V2</code>，提取<code>V5</code>，新序列：<code>V6-V1-V4-V3-V2-V5</code>，也是最终这个图的一个拓扑排序序列。</li>
+</ul>
+<p>很明显，这个<strong>拓扑排序的结果不是唯一的</strong>，比如第一步可以先提取V1，最后一步可以先提取V5……但是他们的结果都是满足拓扑排序的要求的。</p>
+<h2 id="四、最小生成树算法"><a href="#四、最小生成树算法" class="headerlink" title="四、最小生成树算法"></a>四、最小生成树算法</h2><blockquote>
+<p><strong>生成树</strong>：从一个连通图中拆出一棵连通子图，它包含了所有的顶点，但只保留了足以构成一棵树的边（<code>N-1</code>条边，<code>N</code>为顶点个数）</p>
+<p><strong>最小生成树</strong>：对于连通网而言的，所有边的代价之和最小（权的总和最小）的生成树，就是最小生成树</p>
+<p><img src="/2024/04/30/graph/8.jpg" alt="图-一个连通网和它的最小生成树"></p>
+</blockquote>
+<h3 id="1-Prim算法"><a href="#1-Prim算法" class="headerlink" title="1. Prim算法"></a>1. Prim算法</h3><h3 id="2-Kruskal算法"><a href="#2-Kruskal算法" class="headerlink" title="2. Kruskal算法"></a>2. Kruskal算法</h3><h2 id="五、最短路径算法"><a href="#五、最短路径算法" class="headerlink" title="五、最短路径算法"></a>五、最短路径算法</h2><blockquote>
+<p><strong>最短路径</strong>：两个点之间，权值的和最小的路径就是最短路径。</p>
+</blockquote>
+<h3 id="1-Dijkstra算法"><a href="#1-Dijkstra算法" class="headerlink" title="1. Dijkstra算法"></a>1. Dijkstra算法</h3><h3 id="2-Floyd算法"><a href="#2-Floyd算法" class="headerlink" title="2. Floyd算法"></a>2. Floyd算法</h3>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/04/30/markdown/" rel="prev" title="Markdown学习笔记">
+                  <i class="fa fa-angle-left"></i> Markdown学习笔记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/05/01/linked-list/" rel="next" title="链表">
+                  链表 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">鲲鹏创客设</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
