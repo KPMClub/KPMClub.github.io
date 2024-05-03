@@ -151,18 +151,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -182,6 +182,462 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/03/vector/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="鲲鹏创客社">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KunPeng Maker Club">
+      <meta itemprop="description" content="Welcome to KunPeng Maker Club!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | KunPeng Maker Club">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/03/vector/" class="post-title-link" itemprop="url">Vector容器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-05-03 19:33:39 / Modified: 21:20:58" itemprop="dateCreated datePublished" datetime="2024-05-03T19:33:39+08:00">2024-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C-C/STL/" itemprop="url" rel="index"><span itemprop="name">STL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Vector容器"><a href="#Vector容器" class="headerlink" title="Vector容器"></a>Vector容器</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>Vector可以翻译为向量，或向量数组，至于为什么以向量命名，可以理解为一维空间也是存在向量的。</p>
+<p>Vector是最简单的序列是容器，就像数组一样，向量使用连续的存储位置作为元素，这意味着它们的元素也可以使用常量指向其元素的偏移来访问，与数组一样有效。但与数组不同，它们的大小可以动态变化，其存储由容器自动处理。</p>
+<p>总结一下Vector就是一个动态创建空间，且预先加载了常用的数组操作的数组</p>
+</blockquote>
+<h2 id="相关头文件"><a href="#相关头文件" class="headerlink" title="相关头文件"></a>相关头文件</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>vector&lt;T&gt; v1;</code></td>
+<td align="left">v1 是一个元素类型为 T 的空 vector</td>
+</tr>
+<tr>
+<td align="left"><code>vector&lt;T&gt; v2(v1);</code></td>
+<td align="left">使用 v2 中所有元素初始化 v1</td>
+</tr>
+<tr>
+<td align="left"><code>vector&lt;T&gt; v2 = v1;</code></td>
+<td align="left">同上</td>
+</tr>
+<tr>
+<td align="left"><code>vector&lt;T&gt; v3(n, val);</code></td>
+<td align="left">v3 中包含了 n 个值为 val 的元素</td>
+</tr>
+<tr>
+<td align="left"><code>vector&lt;T&gt; v4(n);</code></td>
+<td align="left">v3 中包含了 n 个默认值初始化的元素</td>
+</tr>
+<tr>
+<td align="left"><code>vector&lt;T&gt; v5&#123;a, b, c...&#125;;</code></td>
+<td align="left">使用 a, b, c… 初始化 v5</td>
+</tr>
+<tr>
+<td align="left"><code>vector&lt;T&gt; v1;</code></td>
+<td align="left">同上</td>
+</tr>
+<tr>
+<td align="left"><code>vector&lt;vector&lt;int&gt;&gt; matrix(M,vector&lt;int&gt;(N));</code></td>
+<td align="left">二维数组初始化</td>
+</tr>
+</tbody></table>
+<h2 id="vector-常用基础操作"><a href="#vector-常用基础操作" class="headerlink" title="vector 常用基础操作"></a>vector 常用基础操作</h2><table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>v.empty();</code></td>
+<td align="left">如果 v 为空则返回 true，否则返回 false</td>
+</tr>
+<tr>
+<td align="left"><code>v.size();</code></td>
+<td align="left">返回 v 中元素的个数</td>
+</tr>
+<tr>
+<td align="left"><code>v.push_back(val);</code></td>
+<td align="left">向 vector 的尾端添加值为 val 的元素。</td>
+</tr>
+<tr>
+<td align="left"><code>v.pop_back(val);</code></td>
+<td align="left">删除尾元素，返回void。vector同样 不支持 pop_front 操作。</td>
+</tr>
+<tr>
+<td align="left"><code>v[n];</code></td>
+<td align="left">返回 v 中第 n 个位置上元素的引用，不能用下标操作添加元素</td>
+</tr>
+<tr>
+<td align="left"><code>v.back();</code></td>
+<td align="left">返回 v 中最后一个元素的引用</td>
+</tr>
+<tr>
+<td align="left"><code>v.front();</code></td>
+<td align="left">返回 v 中第一个元素的引用</td>
+</tr>
+<tr>
+<td align="left"><code>v1 = v2;</code></td>
+<td align="left">用 v2 中的元素替换 v1 中的元素</td>
+</tr>
+<tr>
+<td align="left"><code>v1 = &#123;a, b, c...&#125;;</code></td>
+<td align="left">用元素 {a, b, c…} 替换 v1 中的元素</td>
+</tr>
+<tr>
+<td align="left"><code>v1 == v2;</code></td>
+<td align="left">当且仅当拥有相同数量且相同位置上值相同的元素时，v1 与 v2 相等</td>
+</tr>
+<tr>
+<td align="left"><code>v1 != v2;</code></td>
+<td align="left">自行体会</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;, &lt;=, &gt;, &gt;=</code></td>
+<td align="left">以字典序进行比较</td>
+</tr>
+</tbody></table>
+<h2 id="插入和删除"><a href="#插入和删除" class="headerlink" title="插入和删除"></a>插入和删除</h2><p><strong>插入</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>void push_back(const T&amp; x);</code></td>
+<td align="left">向量尾部增加一个元素X</td>
+</tr>
+<tr>
+<td align="left"><code>iterator insert(iterator it,const T&amp; x);</code></td>
+<td align="left">向量中迭代器指向元素前增加一个元素x</td>
+</tr>
+<tr>
+<td align="left"><code>iterator insert(iterator it,int n,const T&amp; x);</code></td>
+<td align="left">向量中迭代器指向元素前增加n个相同的元素x</td>
+</tr>
+<tr>
+<td align="left"><code>iterator insert(iterator it,const_iterator first,const_iterator last);</code></td>
+<td align="left">向量中迭代器指向元素前插入另一个相同类型向量的[first,last)间的数据</td>
+</tr>
+</tbody></table>
+<p><strong>删除</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>iterator erase(iterator it);</code></td>
+<td align="left">删除向量中迭代器指向元素</td>
+</tr>
+<tr>
+<td align="left"><code>iterator erase(iterator first,iterator last);</code></td>
+<td align="left">删除向量中[first,last)中元素</td>
+</tr>
+<tr>
+<td align="left"><code>void pop_back();</code></td>
+<td align="left">删除向量中最后一个元素</td>
+</tr>
+<tr>
+<td align="left"><code>void clear();</code></td>
+<td align="left">清空向量中所有元素</td>
+</tr>
+</tbody></table>
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>reference at(int pos);</code></td>
+<td align="left">返回pos位置元素的引用</td>
+</tr>
+<tr>
+<td align="left"><code>reference front();</code></td>
+<td align="left">返回首元素的引用</td>
+</tr>
+<tr>
+<td align="left"><code>reference back();</code></td>
+<td align="left">返回尾元素的引用</td>
+</tr>
+<tr>
+<td align="left"><code>iterator begin();</code></td>
+<td align="left">返回向量头指针，指向第一个元素</td>
+</tr>
+<tr>
+<td align="left"><code>iterator end();</code></td>
+<td align="left">返回向量尾指针，指向向量最后一个元素的下一个位置</td>
+</tr>
+<tr>
+<td align="left"><code>reverse_iterator rbegin();</code></td>
+<td align="left">反向迭代器，指向最后一个元素</td>
+</tr>
+<tr>
+<td align="left"><code>reverse_iterator rend();</code></td>
+<td align="left">反向迭代器，指向第一个元素之前的位置</td>
+</tr>
+</tbody></table>
+<h2 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h2><table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>int size() const;</code></td>
+<td align="left">返回向量中元素的个数</td>
+</tr>
+<tr>
+<td align="left"><code>int capacity() const;</code></td>
+<td align="left">返回当前向量所能容纳的最大元素值</td>
+</tr>
+<tr>
+<td align="left"><code>int max_size() const;</code></td>
+<td align="left">返回最大可允许的vector元素数量值</td>
+</tr>
+</tbody></table>
+<h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>bool empty() const;</code></td>
+<td align="left">判断向量是否为空，若为空，则向量中无元素</td>
+</tr>
+</tbody></table>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>void swap(vector&amp;);</code></td>
+<td align="left">交换两个同类型向量的数据</td>
+</tr>
+<tr>
+<td align="left"><code>void assign(int n,const T&amp; x);</code></td>
+<td align="left">设置向量中前n个元素的值为x</td>
+</tr>
+<tr>
+<td align="left"><code>void assign(const_iterator first,const_iterator last);</code></td>
+<td align="left">向量中[first,last)中元素设置成当前向量元素</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/03/stl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="鲲鹏创客社">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KunPeng Maker Club">
+      <meta itemprop="description" content="Welcome to KunPeng Maker Club!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | KunPeng Maker Club">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/03/stl/" class="post-title-link" itemprop="url">C++ STL入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-05-03 19:00:11 / Modified: 19:42:44" itemprop="dateCreated datePublished" datetime="2024-05-03T19:00:11+08:00">2024-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C-C/STL/" itemprop="url" rel="index"><span itemprop="name">STL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="C-STL入门"><a href="#C-STL入门" class="headerlink" title="C++ STL入门"></a>C++ STL入门</h1><p><strong>STL简介</strong></p>
+<blockquote>
+<p>STL是Standard Template Library的简称，中文名标准模板库，惠普实验室开发的一系列软件的统称。它是由Alexander Stepanov、Meng Lee和David R Musser在惠普实验室工作时所开发出来的。从根本上说，STL是一些“容器”与“算法”的集合，所谓的这些“容器”无非就是已经实现好了数据结构，能够让程序设计者更为方便的进行调用，“算法”则顾名思义就是已预先实现好了的算法集合。</p>
+<p>STL的目的是标准化组件，这样就不用重新开发，可以使用现成的组件。STL现在是C++的一部分，因此不用安装额外的库文件。STL的版本很多，有很多公司或者工作室自定义STL形成各种各样的自定义标准。</p>
+</blockquote>
+<p><strong>在C++ STL中最基本的15个头文件</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>&lt;algorithm&gt;</code></td>
+<td align="center"><code>&lt;deque&gt;</code></td>
+<td align="center"><code>&lt;functional&gt;</code></td>
+<td align="center"><code>&lt;iterator&gt;</code></td>
+<td align="center"><code>&lt;vector&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>&lt;list&gt;</code></td>
+<td align="center"><code>&lt;map&gt;</code></td>
+<td align="center"><code>&lt;memory&gt;</code></td>
+<td align="center"><code>&lt;numeric&gt;</code></td>
+<td align="center"><code>&lt;queue&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>&lt;set&gt;</code></td>
+<td align="center"><code>&lt;stack&gt;</code></td>
+<td align="center"><code>&lt;string&gt;</code></td>
+<td align="center"><code>&lt;array&gt;</code></td>
+<td align="center"><code>&lt;utility&gt;</code></td>
+</tr>
+</tbody></table>
+<p><strong>STL中包含的六大内容</strong></p>
+<ol>
+<li><strong>容器（Container）</strong><br>是一种数据结构，也是本章节提的重点，如list(链表)，vector(向量数组)，stack(栈)，队列(queue) ，以模板类的方法提供，为了访问容器中的数据，可以使用由容器类输出的迭代器。</li>
+<li><strong>迭代器（Iterator）</strong><br>是一种特殊的指针，它提供了访问容器中对象的方法，在程序设计中，它扮演了容器和算法之间的胶合剂，利用迭代器可以快速而安全的对容器内容进行操作，或是进行算法模板的使用。</li>
+<li><strong>算法（Algorithm）</strong><br>（部分书籍称为泛型算法，generic algorithms），是一类常用的算法模板，既可以对容器进行操作，同时其开放性也让算法类本身可以针对数组或者是自定义结构体等结构进行直接的操作。</li>
+<li><strong>仿函数（Function object）（又称为函数对象，function object）</strong><br>是一种行为类似函数，这样讲可能有些抽象，我们可以理解为一种高级的，重载了()操作符的结构体与类。</li>
+<li><strong>迭代适配器（Iterator Adaptor）</strong><br>是一种用来修饰容器或者仿函数的接口，它使得得带适配器使算法能够以逆向模式，安插模式进行工作，甚至还可以与流配合，它对容器起到非常大的辅助作用，同时他还将迭代器进行了更高级别的抽象。</li>
+<li><strong>空间配制器（allocator）</strong><br>是负责空间的配置与管理，重点就是对容器的空间申请和空间释放进行管理，你可以理解为C的malloc和free函数，C++的new和delete关键字。</li>
+</ol>
+<p><em>我们主要研究前三项</em></p>
+<p><strong>容器篇</strong><br><a target="_blank" rel="noopener" href="https://josiahbristow.github.io/2024/05/04/vector/">Vector容器</a><br>持续更新中,敬请期待…</p>
+<p><strong>算法篇</strong><br>持续更新中,敬请期待…</p>
+<p><strong>迭代器篇</strong><br>持续更新中,敬请期待…</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1255,208 +1711,6 @@
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">`http://www.example.com`</span></span><br></pre></td></tr></table></figure>
 
 
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/30/type/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="鲲鹏创客社">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KunPeng Maker Club">
-      <meta itemprop="description" content="Welcome to KunPeng Maker Club!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | KunPeng Maker Club">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/30/type/" class="post-title-link" itemprop="url">读懂C/C++类型声明的黄金法则</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-04-30 15:43:26 / Modified: 21:52:23" itemprop="dateCreated datePublished" datetime="2024-04-30T15:43:26+08:00">2024-04-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="读懂C-C-类型声明的黄金法则"><a href="#读懂C-C-类型声明的黄金法则" class="headerlink" title="读懂C&#x2F;C++类型声明的黄金法则"></a>读懂C&#x2F;C++类型声明的黄金法则</h1><h3 id="1-找到变量名，如果没有变量名，找到最里面的结构"><a href="#1-找到变量名，如果没有变量名，找到最里面的结构" class="headerlink" title="1. 找到变量名，如果没有变量名，找到最里面的结构"></a>1. 找到变量名，如果没有变量名，找到最里面的结构</h3><h3 id="2-向右看，读出你看到的东西，但不要跳过括号"><a href="#2-向右看，读出你看到的东西，但不要跳过括号" class="headerlink" title="2. 向右看，读出你看到的东西，但不要跳过括号"></a>2. 向右看，读出你看到的东西，但不要跳过括号</h3><h3 id="3-再向左看，读出你看到的东西，但不要也跳过括号"><a href="#3-再向左看，读出你看到的东西，但不要也跳过括号" class="headerlink" title="3. 再向左看，读出你看到的东西，但不要也跳过括号"></a>3. 再向左看，读出你看到的东西，但不要也跳过括号</h3><h3 id="4-如果有括号，跳出一层括号"><a href="#4-如果有括号，跳出一层括号" class="headerlink" title="4. 如果有括号，跳出一层括号"></a>4. 如果有括号，跳出一层括号</h3><h3 id="5-重复上述步骤，直到你读出最终类型"><a href="#5-重复上述步骤，直到你读出最终类型" class="headerlink" title="5. 重复上述步骤，直到你读出最终类型"></a>5. 重复上述步骤，直到你读出最终类型</h3><iframe src="//player.bilibili.com/player.html?aid=602127548&bvid=BV1mB4y1L7HB&cid=807847346&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/30/git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="鲲鹏创客社">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KunPeng Maker Club">
-      <meta itemprop="description" content="Welcome to KunPeng Maker Club!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | KunPeng Maker Club">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/30/git/" class="post-title-link" itemprop="url">Git学习笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-04-30 15:42:32" itemprop="dateCreated datePublished" datetime="2024-04-30T15:42:32+08:00">2024-04-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-01 04:36:38" itemprop="dateModified" datetime="2024-05-01T04:36:38+08:00">2024-05-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Skills/" itemprop="url" rel="index"><span itemprop="name">Skills</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="https://git-scm.com/images/logo@2x.png" alt="Git">[<a target="_blank" rel="noopener" href="https://git-scm.com/]">https://git-scm.com/]</a></p>
-<h1 id="Git学习笔记"><a href="#Git学习笔记" class="headerlink" title="Git学习笔记"></a>Git学习笔记</h1><h2 id="1-Ubuntu环境下安装Git"><a href="#1-Ubuntu环境下安装Git" class="headerlink" title="1. Ubuntu环境下安装Git"></a>1. Ubuntu环境下安装Git</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-产看Git版本号"><a href="#2-产看Git版本号" class="headerlink" title="2. 产看Git版本号"></a>2. 产看Git版本号</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git -v</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-绑定用户信息"><a href="#3-绑定用户信息" class="headerlink" title="3. 绑定用户信息"></a>3. 绑定用户信息</h2><ol>
-<li>绑定用户名<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;这里填你的名字&quot;</span><br></pre></td></tr></table></figure></li>
-<li>绑定用户邮箱<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;这里填你的邮箱&quot;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="4-正式使用Git"><a href="#4-正式使用Git" class="headerlink" title="4.正式使用Git"></a>4.正式使用Git</h2><h3 id="1-创建一个本地的Git项目仓库"><a href="#1-创建一个本地的Git项目仓库" class="headerlink" title="1. 创建一个本地的Git项目仓库"></a>1. 创建一个本地的Git项目仓库</h3><ol>
-<li>clone别人的仓库<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone [项目地址]</span><br></pre></td></tr></table></figure></li>
-<li>创建版本库<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init #在你的项目文件夹下执行该指令</span><br></pre></td></tr></table></figure>
-Git将会在此文件夹下自动创建<code>.git</code>文件</li>
-</ol>
-<h3 id="2-提交文件"><a href="#2-提交文件" class="headerlink" title="2. 提交文件"></a>2. 提交文件</h3><ol>
-<li>把代码提交到仓库<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add [文件名] #执行该指令Git将把修改的代码添加到暂存区</span><br></pre></td></tr></table></figure>
-另外执行下面指令Git将把该目录下所有文件添加到暂存区<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure></li>
-<li>放入仓库<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;备注内容&quot;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="3-查看记录"><a href="#3-查看记录" class="headerlink" title="3. 查看记录"></a>3. 查看记录</h3><ol>
-<li><p>查看提交记录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
-<p>若想查看更详细的信息，执行下面指令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --static # 查看提交时修改了哪些文件</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看某次提交修改的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff [commit id]</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="4-代码回溯"><a href="#4-代码回溯" class="headerlink" title="4. 代码回溯"></a>4. 代码回溯</h3><ol>
-<li>回溯到某个节点<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard [commit id]</span><br></pre></td></tr></table></figure>
-或者是<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout [commit id]</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="5-分支"><a href="#5-分支" class="headerlink" title="5. 分支"></a>5. 分支</h3><ol>
-<li>创建分支<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b [branch name]</span><br></pre></td></tr></table></figure></li>
-<li>查看分支<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure></li>
-<li>切换分支<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout [branch name]</span><br></pre></td></tr></table></figure></li>
-<li>合并分支<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge [branch name] #执行该命令前先切换到你要合并的分支，如master分支</span><br></pre></td></tr></table></figure></li>
-</ol>
 
       
     </div>

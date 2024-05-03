@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.jpg">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Vector容器概念 Vector可以翻译为向量，或向量数组，至于为什么以向量命名，可以理解为一维空间也是存在向量的。 Vector是最简单的序列是容器，就像数组一样，向量使用连续的存储位置作为元素，这意味着它们的元素也可以使用常量指向其元素的偏移来访问，与数组一样有效。但与数组不同，它们的大小可以动态变化，其存储由容器自动处理。 总结一下Vector就是一个动态创建空间，且预先加载了常用的数组操">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vector容器">
+<meta property="og:url" content="http://example.com/2024/05/03/vector/index.html">
+<meta property="og:site_name" content="KunPeng Maker Club">
+<meta property="og:description" content="Vector容器概念 Vector可以翻译为向量，或向量数组，至于为什么以向量命名，可以理解为一维空间也是存在向量的。 Vector是最简单的序列是容器，就像数组一样，向量使用连续的存储位置作为元素，这意味着它们的元素也可以使用常量指向其元素的偏移来访问，与数组一样有效。但与数组不同，它们的大小可以动态变化，其存储由容器自动处理。 总结一下Vector就是一个动态创建空间，且预先加载了常用的数组操">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-03T11:33:39.000Z">
+<meta property="article:modified_time" content="2024-05-03T13:20:58.090Z">
+<meta property="article:author" content="鲲鹏创客社">
+<meta property="article:tag" content="STL">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2024/05/03/vector/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/05/03/vector/","path":"2024/05/03/vector/","title":"Vector容器"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Vector容器 | KunPeng Maker Club</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">KunPeng Maker Club</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">KunPeng Maker Club</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vector%E5%AE%B9%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">Vector容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">相关头文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.3.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector-%E5%B8%B8%E7%94%A8%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="nav-number">1.4.</span> <span class="nav-text">vector 常用基础操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%92%8C%E5%88%A0%E9%99%A4"><span class="nav-number">1.5.</span> <span class="nav-text">插入和删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8D%E5%8E%86"><span class="nav-number">1.6.</span> <span class="nav-text">遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.7.</span> <span class="nav-text">大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD"><span class="nav-number">1.8.</span> <span class="nav-text">判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">1.9.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">鲲鹏创客社</p>
+  <div class="site-description" itemprop="description">Welcome to KunPeng Maker Club!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/03/vector/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="鲲鹏创客社">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KunPeng Maker Club">
+      <meta itemprop="description" content="Welcome to KunPeng Maker Club!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Vector容器 | KunPeng Maker Club">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vector容器
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-05-03 19:33:39 / Modified: 21:20:58" itemprop="dateCreated datePublished" datetime="2024-05-03T19:33:39+08:00">2024-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C-C/STL/" itemprop="url" rel="index"><span itemprop="name">STL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Vector容器"><a href="#Vector容器" class="headerlink" title="Vector容器"></a>Vector容器</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>Vector可以翻译为向量，或向量数组，至于为什么以向量命名，可以理解为一维空间也是存在向量的。</p>
+<p>Vector是最简单的序列是容器，就像数组一样，向量使用连续的存储位置作为元素，这意味着它们的元素也可以使用常量指向其元素的偏移来访问，与数组一样有效。但与数组不同，它们的大小可以动态变化，其存储由容器自动处理。</p>
+<p>总结一下Vector就是一个动态创建空间，且预先加载了常用的数组操作的数组</p>
+</blockquote>
+<h2 id="相关头文件"><a href="#相关头文件" class="headerlink" title="相关头文件"></a>相关头文件</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>vector&lt;T&gt; v1;</code></td>
+<td align="left">v1 是一个元素类型为 T 的空 vector</td>
+</tr>
+<tr>
+<td align="left"><code>vector&lt;T&gt; v2(v1);</code></td>
+<td align="left">使用 v2 中所有元素初始化 v1</td>
+</tr>
+<tr>
+<td align="left"><code>vector&lt;T&gt; v2 = v1;</code></td>
+<td align="left">同上</td>
+</tr>
+<tr>
+<td align="left"><code>vector&lt;T&gt; v3(n, val);</code></td>
+<td align="left">v3 中包含了 n 个值为 val 的元素</td>
+</tr>
+<tr>
+<td align="left"><code>vector&lt;T&gt; v4(n);</code></td>
+<td align="left">v3 中包含了 n 个默认值初始化的元素</td>
+</tr>
+<tr>
+<td align="left"><code>vector&lt;T&gt; v5&#123;a, b, c...&#125;;</code></td>
+<td align="left">使用 a, b, c… 初始化 v5</td>
+</tr>
+<tr>
+<td align="left"><code>vector&lt;T&gt; v1;</code></td>
+<td align="left">同上</td>
+</tr>
+<tr>
+<td align="left"><code>vector&lt;vector&lt;int&gt;&gt; matrix(M,vector&lt;int&gt;(N));</code></td>
+<td align="left">二维数组初始化</td>
+</tr>
+</tbody></table>
+<h2 id="vector-常用基础操作"><a href="#vector-常用基础操作" class="headerlink" title="vector 常用基础操作"></a>vector 常用基础操作</h2><table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>v.empty();</code></td>
+<td align="left">如果 v 为空则返回 true，否则返回 false</td>
+</tr>
+<tr>
+<td align="left"><code>v.size();</code></td>
+<td align="left">返回 v 中元素的个数</td>
+</tr>
+<tr>
+<td align="left"><code>v.push_back(val);</code></td>
+<td align="left">向 vector 的尾端添加值为 val 的元素。</td>
+</tr>
+<tr>
+<td align="left"><code>v.pop_back(val);</code></td>
+<td align="left">删除尾元素，返回void。vector同样 不支持 pop_front 操作。</td>
+</tr>
+<tr>
+<td align="left"><code>v[n];</code></td>
+<td align="left">返回 v 中第 n 个位置上元素的引用，不能用下标操作添加元素</td>
+</tr>
+<tr>
+<td align="left"><code>v.back();</code></td>
+<td align="left">返回 v 中最后一个元素的引用</td>
+</tr>
+<tr>
+<td align="left"><code>v.front();</code></td>
+<td align="left">返回 v 中第一个元素的引用</td>
+</tr>
+<tr>
+<td align="left"><code>v1 = v2;</code></td>
+<td align="left">用 v2 中的元素替换 v1 中的元素</td>
+</tr>
+<tr>
+<td align="left"><code>v1 = &#123;a, b, c...&#125;;</code></td>
+<td align="left">用元素 {a, b, c…} 替换 v1 中的元素</td>
+</tr>
+<tr>
+<td align="left"><code>v1 == v2;</code></td>
+<td align="left">当且仅当拥有相同数量且相同位置上值相同的元素时，v1 与 v2 相等</td>
+</tr>
+<tr>
+<td align="left"><code>v1 != v2;</code></td>
+<td align="left">自行体会</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;, &lt;=, &gt;, &gt;=</code></td>
+<td align="left">以字典序进行比较</td>
+</tr>
+</tbody></table>
+<h2 id="插入和删除"><a href="#插入和删除" class="headerlink" title="插入和删除"></a>插入和删除</h2><p><strong>插入</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>void push_back(const T&amp; x);</code></td>
+<td align="left">向量尾部增加一个元素X</td>
+</tr>
+<tr>
+<td align="left"><code>iterator insert(iterator it,const T&amp; x);</code></td>
+<td align="left">向量中迭代器指向元素前增加一个元素x</td>
+</tr>
+<tr>
+<td align="left"><code>iterator insert(iterator it,int n,const T&amp; x);</code></td>
+<td align="left">向量中迭代器指向元素前增加n个相同的元素x</td>
+</tr>
+<tr>
+<td align="left"><code>iterator insert(iterator it,const_iterator first,const_iterator last);</code></td>
+<td align="left">向量中迭代器指向元素前插入另一个相同类型向量的[first,last)间的数据</td>
+</tr>
+</tbody></table>
+<p><strong>删除</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>iterator erase(iterator it);</code></td>
+<td align="left">删除向量中迭代器指向元素</td>
+</tr>
+<tr>
+<td align="left"><code>iterator erase(iterator first,iterator last);</code></td>
+<td align="left">删除向量中[first,last)中元素</td>
+</tr>
+<tr>
+<td align="left"><code>void pop_back();</code></td>
+<td align="left">删除向量中最后一个元素</td>
+</tr>
+<tr>
+<td align="left"><code>void clear();</code></td>
+<td align="left">清空向量中所有元素</td>
+</tr>
+</tbody></table>
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>reference at(int pos);</code></td>
+<td align="left">返回pos位置元素的引用</td>
+</tr>
+<tr>
+<td align="left"><code>reference front();</code></td>
+<td align="left">返回首元素的引用</td>
+</tr>
+<tr>
+<td align="left"><code>reference back();</code></td>
+<td align="left">返回尾元素的引用</td>
+</tr>
+<tr>
+<td align="left"><code>iterator begin();</code></td>
+<td align="left">返回向量头指针，指向第一个元素</td>
+</tr>
+<tr>
+<td align="left"><code>iterator end();</code></td>
+<td align="left">返回向量尾指针，指向向量最后一个元素的下一个位置</td>
+</tr>
+<tr>
+<td align="left"><code>reverse_iterator rbegin();</code></td>
+<td align="left">反向迭代器，指向最后一个元素</td>
+</tr>
+<tr>
+<td align="left"><code>reverse_iterator rend();</code></td>
+<td align="left">反向迭代器，指向第一个元素之前的位置</td>
+</tr>
+</tbody></table>
+<h2 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h2><table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>int size() const;</code></td>
+<td align="left">返回向量中元素的个数</td>
+</tr>
+<tr>
+<td align="left"><code>int capacity() const;</code></td>
+<td align="left">返回当前向量所能容纳的最大元素值</td>
+</tr>
+<tr>
+<td align="left"><code>int max_size() const;</code></td>
+<td align="left">返回最大可允许的vector元素数量值</td>
+</tr>
+</tbody></table>
+<h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>bool empty() const;</code></td>
+<td align="left">判断向量是否为空，若为空，则向量中无元素</td>
+</tr>
+</tbody></table>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>void swap(vector&amp;);</code></td>
+<td align="left">交换两个同类型向量的数据</td>
+</tr>
+<tr>
+<td align="left"><code>void assign(int n,const T&amp; x);</code></td>
+<td align="left">设置向量中前n个元素的值为x</td>
+</tr>
+<tr>
+<td align="left"><code>void assign(const_iterator first,const_iterator last);</code></td>
+<td align="left">向量中[first,last)中元素设置成当前向量元素</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/STL/" rel="tag"># STL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/05/03/stl/" rel="prev" title="C++ STL入门">
+                  <i class="fa fa-angle-left"></i> C++ STL入门
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">鲲鹏创客社</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
