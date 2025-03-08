@@ -1,0 +1,99 @@
+/* 侧边浮动栏 */
+.float-sidebar {
+    position: fixed;
+    top: 50%;
+    right: -80px; /* 默认隐藏 */
+    transform: translateY(-50%);
+    border-radius: 10px 0 0 10px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+    transition: right 0.3s ease;
+}
+
+.float-sidebar:hover {
+    right: 0; /* 鼠标悬停时显示 */
+}
+
+/* 返回最上方按钮 */
+.back-to-top {
+    display: none; /* 默认隐藏 */
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 10px; /* 与上方元素的间距 */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: #555;
+    transform: scale(1.1);
+}
+
+/* 语言切换器和主题切换器 */
+.language-switcher select,
+.theme-switcher select {
+    padding: 5px 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 10px; /* 与主题选择器的间距 */
+}
+
+.language-switcher select:hover,
+.theme-switcher select:hover {
+    opacity: 0.8;
+}
+
+.language-switcher select:focus,
+.theme-switcher select:focus {
+    outline: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .float-sidebar {
+        right: -60px; /* 在小屏幕上减少隐藏部分的宽度 */
+        padding: 8px;
+    }
+
+    .language-switcher select,
+    .theme-switcher select {
+        font-size: 12px; /* 在小屏幕上减小字体大小 */
+        padding: 4px 8px;
+    }
+
+    .back-to-top {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .float-sidebar {
+        right: -50px; /* 在更小的屏幕上进一步减少隐藏部分的宽度 */
+        padding: 6px;
+    }
+
+    .language-switcher select,
+    .theme-switcher select {
+        font-size: 10px; /* 在更小的屏幕上进一步减小字体大小 */
+        padding: 3px 6px;
+    }
+
+    .back-to-top {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "title": "鲲鹏创客社",
+    "header-title": "鲲鹏创客社",
+    "nav-about": "关于我们",
+    "nav-events": "活动",
+    "nav-members": "成员",
+    "nav-contact": "联系我们",
+    "nav-blog": "博客",
+    "nav-gallery": "相册",
+    "gallery-title": "相册",
+    "about-title": "关于我们",
+    "about-content": "鲲鹏创客社团是一个结合计算机科学（CS）和电子竞技的多元社团，隶属于SCLA®协会。社团由技术人员和教学人员组成，氛围活跃，热爱技术讨论与创新。无论你是技术大神还是零基础小白，只要对技术感兴趣，都欢迎加入我们，一起学习、成长！",
+    "events-title": "活动",
+    "events-content": "不定期发放福利，假期组织算法竞赛。 无论你是技术小白还是爱好者，都能找到适合自己的活动！",
+    "members-title": "成员",
+    "members-content": "这里是我们的成员介绍。",
+    "contact-title": "联系我们",
+    "contact-content": "这里是我们的联系方式。",
+    "footer-text": "© 2023 社团名称. 保留所有权利。",
+    "theme-default": "🌞 默认主题",
+    "theme-dark": "🌙 暗色主题",
+    "theme-blue": "🔵 蓝色主题"
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang="title">社团名称</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/floatbar.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 data-lang="header-title">鲲鹏创客社</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about" data-lang="nav-about">关于我们</a></li>
+                    <li><a href="#events" data-lang="nav-events">活动</a></li>
+                    <li><a href="#members" data-lang="nav-members">成员</a></li>
+                    <li><a href="#contact" data-lang="nav-contact">联系我们</a></li>
+                    <li><a href="blog.html" data-lang="nav-blog">博客</a></li>
+                    <li><a href="gallery.html" data-lang="nav-gallery">相册</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 data-lang="about-title">关于我们</h2>
+            <p data-lang="about-content">这里是关于我们社团的简介。</p>
+        </div>
+    </section>
+
+    <section id="events" class="section">
+        <div class="container">
+            <h2 data-lang="events-title">活动</h2>
+            <p data-lang="events-content">这里是我们的活动信息。</p>
+        </div>
+    </section>
+
+    <section id="members" class="section">
+        <div class="container">
+            <h2 data-lang="members-title">成员</h2>
+            <p data-lang="members-content">这里是我们的成员介绍。</p>
+        </div>
+    </section>
+    
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 data-lang="contact-title">联系我们</h2>
+            <p data-lang="contact-content">这里是我们的联系方式。</p>
+            <div class="social-links">
+                <a href="mailto:w231726@163.com" aria-label="邮箱">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+1234567890" aria-label="电话">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="https://github.com/KPMClub/" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://qq.com/" target="_blank" aria-label="QQ">
+                    <i class="fab fa-qq"></i>
+                </a>
+                <a href="https://weixin.qq.com/" target="_blank" aria-label="微信">
+                    <i class="fab fa-weixin"></i>
+                </a>
+                <a href="https://twitter.com/" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://facebook.com/" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.bilibili.com/" target="_blank" aria-label="B站">
+                    <i class="fab fa-bilibili"></i>
+                </a>
+                <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.weibo.com/" target="_blank" aria-label="微博">
+                    <i class="fab fa-weibo"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p data-lang="footer-text">&copy; 2023 鲲鹏创客社. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <div class="float-sidebar">
+        <div class="language-switcher">
+            <select id="language-switcher">
+                <option value="en">🌐 English</option>
+                <option value="zh-CN">🌐 简体中文</option>
+                <option value="zh-TW">🌐 繁体中文</option>
+            </select>
+        </div>
+        <div class="theme-switcher">
+            <select id="theme-switcher">
+                <option value="default" data-lang="theme-default">🌞 默认主题</option>
+                <option value="dark" data-lang="theme-dark">🌙 暗色主题</option>
+                <option value="blue" data-lang="theme-blue">🔵 蓝色主题</option>
+            </select>
+        </div>
+        <div class="back-to-top" id="back-to-top">↑</div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>
