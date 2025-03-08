@@ -1,0 +1,51 @@
+/* 博客详情页面样式 */
+#blog-detail {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#blog-detail h1, #blog-detail h2, #blog-detail h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+#blog-detail h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+#blog-detail h2 {
+    font-size: 1.75rem;
+    margin-bottom: 10px;
+}
+
+#blog-detail h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#blog-detail p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+#blog-detail strong {
+    font-weight: bold;
+    color: #333;
+}
+
+#blog-detail em {
+    font-style: italic;
+    color: #555;
+}
+
+#blog-detail small {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #777;
+}
