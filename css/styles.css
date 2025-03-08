@@ -217,8 +217,15 @@ body.default-theme .float-sidebar select {
     border-color: #ccc;
 }
 
-body.default-theme .blog-post {
+body.default-theme .blog-post,
+body.default-theme .blog-content {
     background: #fff;
+    color: #333;
+}
+
+body.default-theme .toc-sidebar {
+    background: #f9f9f9;
+    color: #333;
 }
 
 body.default-theme .back-to-top {
@@ -253,31 +260,15 @@ body.dark-theme .float-sidebar select {
     border-color: #444;
 }
 
-body.dark-theme .blog-post {
+body.dark-theme .blog-post,
+body.dark-theme .blog-content {
     background: #222;
     color: #e0e0e0;
 }
 
-body.dark-theme .blog-post h1,
-body.dark-theme .blog-post h2,
-body.dark-theme .blog-post h3 {
+body.dark-theme .toc-sidebar {
+    background: #222;
     color: #e0e0e0;
-}
-
-body.dark-theme .blog-post p {
-    color: #ccc;
-}
-
-body.dark-theme .blog-post strong {
-    color: #e0e0e0;
-}
-
-body.dark-theme .blog-post em {
-    color: #ccc;
-}
-
-body.dark-theme .blog-post small {
-    color: #999;
 }
 
 body.dark-theme .back-to-top {
@@ -287,15 +278,6 @@ body.dark-theme .back-to-top {
 
 body.dark-theme .back-to-top:hover {
     background-color: #444;
-}
-
-/* 暗色主题下的社交媒体链接 */
-body.dark-theme .social-links a {
-    color: #e0e0e0;
-}
-
-body.dark-theme .social-links a:hover {
-    color: #0077cc;
 }
 
 /* 蓝色主题 */
@@ -321,31 +303,15 @@ body.blue-theme .float-sidebar select {
     border-color: #99ccff;
 }
 
-body.blue-theme .blog-post {
+body.blue-theme .blog-post,
+body.blue-theme .blog-content {
     background: #fff;
     color: #003366;
 }
 
-body.blue-theme .blog-post h1,
-body.blue-theme .blog-post h2,
-body.blue-theme .blog-post h3 {
+body.blue-theme .toc-sidebar {
+    background: #e6f7ff;
     color: #003366;
-}
-
-body.blue-theme .blog-post p {
-    color: #00509e;
-}
-
-body.blue-theme .blog-post strong {
-    color: #003366;
-}
-
-body.blue-theme .blog-post em {
-    color: #00509e;
-}
-
-body.blue-theme .blog-post small {
-    color: #0077cc;
 }
 
 body.blue-theme .back-to-top {
@@ -355,12 +321,4 @@ body.blue-theme .back-to-top {
 
 body.blue-theme .back-to-top:hover {
     background-color: #00509e;
-}
-
-body.blue-theme .social-links a {
-    color: #003366;
-}
-
-body.blue-theme .social-links a:hover {
-    color: #00509e;
 }
