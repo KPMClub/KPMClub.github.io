@@ -17,24 +17,23 @@ BLOG_TEMPLATE = '''
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang="title">鲲鹏创客社</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>{title}</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/floatbar.css">
     <link rel="stylesheet" href="../css/blog-detail.css">
+    <link rel="stylesheet" href="../css/floatbar.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1 data-lang="header-title">鲲鹏创客社</h1>
+            <h1>鲲鹏创客社</h1>
             <nav>
                 <ul>
-                    <li><a href="../index.html" data-lang="nav-about">关于我们</a></li>
-                    <li><a href="../index.html#events" data-lang="nav-events">活动</a></li>
-                    <li><a href="../index.html#members" data-lang="nav-members">成员</a></li>
-                    <li><a href="../index.html#contact" data-lang="nav-contact">联系我们</a></li>
-                    <li><a href="../blog.html" data-lang="nav-blog">博客</a></li>
-                    <li><a href="../gallery.html" data-lang="nav-gallery">相册</a></li>
+                    <li><a href="../index.html">关于我们</a></li>
+                    <li><a href="../index.html#events">活动</a></li>
+                    <li><a href="../index.html#members">成员</a></li>
+                    <li><a href="../index.html#contact">联系我们</a></li>
+                    <li><a href="../blog.html">博客</a></li>
+                    <li><a href="../gallery.html">相册</a></li>
                 </ul>
             </nav>
         </div>
@@ -42,8 +41,16 @@ BLOG_TEMPLATE = '''
 
     <section class="section">
         <div class="container">
-            <div id="blog-post">
-                {content}
+            <div class="blog-layout">
+                <!-- 左侧目录 -->
+                <div class="toc-sidebar" id="toc-sidebar">
+                    <h3>目录</h3>
+                    {toc}
+                </div>
+                <!-- 右侧博客内容 -->
+                <div class="blog-content" id="blog-detail">
+                    {content}
+                </div>
             </div>
         </div>
     </section>
@@ -80,21 +87,41 @@ BLOG_TEMPLATE = '''
 
 def convert_md_to_html(md_file, html_file):
     """
-    将 Markdown 文件转换为 HTML 文件
+    将 Markdown 文件转换为 HTML 文件，并生成目录
     """
     with open(md_file, 'r', encoding='utf-8') as md:
         markdown_content = md.read()
     
-    # 使用 markdown 库将 Markdown 转换为 HTML
-    html_content = markdown.markdown(markdown_content)
+    # 使用 markdown 库将 Markdown 转换为 HTML，并启用 TOC 扩展
+    md_extensions = [
+        'toc',  # 启用目录扩展
+        'fenced_code',  # 支持代码块
+        'tables',  # 支持表格
+    ]
+    html_content = markdown.markdown(
+        markdown_content,
+        extensions=md_extensions
+    )
 
-    # 使用 BeautifulSoup 美化 HTML 内容
+    # 使用 BeautifulSoup 解析 HTML 内容
     soup = BeautifulSoup(html_content, 'html.parser')
-    prettified_html = soup.prettify()
 
-    # 将 HTML 内容插入模板
-    title = os.path.splitext(os.path.basename(md_file))[0]
-    final_html = BLOG_TEMPLATE.format(title=title, content=prettified_html)
+    # 提取目录
+    toc = soup.find('div', class_='toc')
+    if toc:
+        # 从正文中移除目录
+        toc.extract()
+        toc_html = str(toc)
+    else:
+        # 如果没有目录，生成一个空的目录占位符
+        toc_html = '<p>No table of contents available.</p>'
+
+    # 将目录和内容插入到模板中
+    final_html = BLOG_TEMPLATE.format(
+        title=os.path.splitext(os.path.basename(md_file))[0],
+        toc=toc_html,
+        content=str(soup)  # 使用移除目录后的内容
+    )
 
     # 写入 HTML 文件
     with open(html_file, 'w', encoding='utf-8') as html_output:

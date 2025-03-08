@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // 博客文件列表
     const blogFiles = [
         { id: 1, file: 'blogs/blog1.md', html: 'blog-detail/blog1.html' },
-        { id: 2, file: 'blogs/blog2.md', html: 'blog-detail/blog2.html' }
+        { id: 2, file: 'blogs/blog2.md', html: 'blog-detail/blog2.html' },
+        { id: 3, file: 'blogs/2023-10-15-How-to-Use-Markdown.md', html: 'blog-detail/2023-10-15-How-to-Use-Markdown.html' }
     ];
 
     // 加载并渲染博客
