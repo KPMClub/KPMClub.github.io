@@ -18,22 +18,27 @@ BLOG_TEMPLATE = '''
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/social.css">
     <link rel="stylesheet" href="../css/blog-detail.css">
     <link rel="stylesheet" href="../css/floatbar.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>鲲鹏创客社</h1>
+            <h1 data-lang="header-title">鲲鹏创客社</h1>
             <nav>
                 <ul>
-                    <li><a href="../index.html">关于我们</a></li>
-                    <li><a href="../index.html#events">活动</a></li>
-                    <li><a href="../index.html#members">成员</a></li>
-                    <li><a href="../index.html#contact">联系我们</a></li>
-                    <li><a href="../blog.html">博客</a></li>
-                    <li><a href="../gallery.html">相册</a></li>
+                    <li><a href="../index.html" data-lang="nav-about">关于我们</a></li>
+                    <li><a href="../index.html#events" data-lang="nav-events">活动</a></li>
+                    <li><a href="../index.html#members" data-lang="nav-members">成员</a></li>
+                    <li><a href="../index.html#contact" data-lang="nav-contact">联系我们</a></li>
+                    <li><a href="../blog.html" data-lang="nav-blog">博客</a></li>
+                    <li><a href="../gallery.html" data-lang="nav-gallery">相册</a></li>
                 </ul>
             </nav>
         </div>
@@ -60,6 +65,7 @@ BLOG_TEMPLATE = '''
             <p>&copy; 2023 鲲鹏创客社. 保留所有权利。</p>
         </div>
     </footer>
+    
     <div class="float-sidebar">
         <div class="language-switcher">
             <select id="language-switcher">
@@ -73,6 +79,7 @@ BLOG_TEMPLATE = '''
                 <option value="default" data-lang="theme-default">🌞 默认主题</option>
                 <option value="dark" data-lang="theme-dark">🌙 暗色主题</option>
                 <option value="blue" data-lang="theme-blue">🔵 蓝色主题</option>
+                <option value="cappuccino-mocha">☕ Cappuccino Mocha</option>
             </select>
         </div>
         <div class="back-to-top" id="back-to-top">↑</div>

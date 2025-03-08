@@ -1,0 +1,23 @@
+{
+    "title": "Kunpeng Maker Club",
+    "header-title": "Kunpeng Maker Club",
+    "nav-about": "About Us",
+    "nav-events": "Events",
+    "nav-members": "Members",
+    "nav-contact": "Contact Us",
+    "nav-blog": "Blog",
+    "nav-gallery": "Gallery",
+    "gallery-title": "Gallery",
+    "about-title": "About Us",
+    "about-content": "The Kunpeng Maker Club is a multi-faceted club that combines computer science (CS) and e-sports, and is affiliated with the SCLA® Association. The club is composed of technical and teaching staff, with an active atmosphere and a passion for technical discussion and innovation. Whether you are a technical god or a beginner, as long as you are interested in technology, you are welcome to join us and learn and grow together!",
+    "events-title": "Events",
+    "events-content": "Welfare benefits are distributed from time to time, and algorithm competitions are organized during holidays. Whether you're new to technology or an enthusiast, you'll find something for everyone!",
+    "members-title": "Members",
+    "members-content": "Here is our member introduction.",
+    "contact-title": "Contact Us",
+    "contact-content": "Here is our contact information.",
+    "footer-text": "© 2023 Kunpeng Maker Club. All rights reserved.",
+    "theme-default": "🌞 Default Theme",
+    "theme-dark": "🌙 Dark Theme",
+    "theme-blue": "🔵 Blue Theme"
+}

@@ -27,7 +27,18 @@ If you want to publish a new blog post, follow these steps:
     ```
 - The script will generate an HTML file in the `blog-detail` folder with the same name as your Markdown file (e.g., `2023-10-15-How-to-Use-Markdown.html`).
 
-### 3. Commit and Push Changes
+### 3. Modify the Blog Index
+- Open the `js/blogs.js` file.
+- Add a line to register the new blogs:
+```js
+    const blogFiles = [
+        { id: 1, file: 'blogs/blog1.md', html: 'blog-detail/blog1.html' },
+        { id: 2, file: 'blogs/blog2.md', html: 'blog-detail/blog2.html' },
+        { id: 3, file: 'blogs/2023-10-15-How-to-Use-Markdown.md', html: 'blog-detail/2023-10-15-How-to-Use-Markdown.html' }
+    ];
+```
+
+### 4. Commit and Push Changes
 - Use Git to add, commit, and push your changes:
   ```bash
   git add blogs/2023-10-15-Title.md blog-detail/2023-10-15-Title.html

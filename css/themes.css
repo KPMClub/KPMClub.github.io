@@ -1,0 +1,249 @@
+/* 默认主题 */
+body.default-theme {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+body.default-theme header,
+body.default-theme footer {
+    background-color: #333;
+    color: #fff;
+}
+
+body.default-theme .float-sidebar {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: #ccc;
+}
+
+body.default-theme .float-sidebar select {
+    background-color: #fff;
+    color: #333;
+    border-color: #ccc;
+}
+
+body.default-theme .blog-post,
+body.default-theme .blog-content {
+    background: #fff;
+    color: #333;
+}
+
+body.default-theme .toc-sidebar {
+    background: #f9f9f9;
+    color: #333;
+}
+
+body.default-theme .back-to-top {
+    background-color: #333;
+    color: #fff;
+}
+
+body.default-theme .back-to-top:hover {
+    background-color: #555;
+}
+
+/* 暗色主题 */
+body.dark-theme {
+    background-color: #1a1a1a; /* 深灰色背景 */
+    color: #e0e0e0; /* 浅灰色文字 */
+}
+
+body.dark-theme header,
+body.dark-theme footer {
+    background-color: #111; /* 更深的灰色 */
+    color: #ffffff; /* 白色文字 */
+}
+
+body.dark-theme .float-sidebar {
+    background-color: rgba(34, 34, 34, 0.95); /* 深灰色 */
+    border-color: #444; /* 灰色边框 */
+}
+
+body.dark-theme .float-sidebar select {
+    background-color: #222; /* 深灰色 */
+    color: #ffffff; /* 白色文字 */
+    border-color: #444; /* 灰色边框 */
+}
+
+body.dark-theme .blog-post,
+body.dark-theme .blog-content {
+    background: #222; /* 深灰色 */
+    color: #e0e0e0; /* 浅灰色文字 */
+}
+
+body.dark-theme .toc-sidebar {
+    background: #222; /* 深灰色 */
+    color: #e0e0e0; /* 浅灰色文字 */
+}
+
+body.dark-theme .back-to-top {
+    background-color: #333; /* 灰色 */
+    color: #ffffff; /* 白色文字 */
+}
+
+body.dark-theme .back-to-top:hover {
+    background-color: #444; /* 更深的灰色 */
+}
+
+body.dark-theme .social-links a {
+    color: #e0e0e0; /* 浅灰色文字 */
+}
+
+body.dark-theme .social-links a:hover {
+    color: #0077cc; /* 蓝色 */
+}
+
+/* 暗色主题下的链接颜色 */
+body.dark-theme a {
+    color: #0077cc; /* 蓝色链接 */
+}
+
+body.dark-theme a:hover {
+    color: #0099ff; /* 更亮的蓝色 */
+}
+
+/* 暗色主题下的标题颜色 */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6 {
+    color: #ffffff; /* 白色标题 */
+}
+
+/* 暗色主题下的代码块样式 */
+body.dark-theme pre {
+    background-color: #333; /* 深灰色背景 */
+    color: #e0e0e0; /* 浅灰色文字 */
+    border: 1px solid #444; /* 灰色边框 */
+}
+
+body.dark-theme code {
+    background-color: #333; /* 深灰色背景 */
+    color: #e0e0e0; /* 浅灰色文字 */
+}
+
+/* 蓝色主题 */
+body.blue-theme {
+    background-color: #e6f7ff;
+    color: #003366;
+}
+
+body.blue-theme header,
+body.blue-theme footer {
+    background-color: #003366;
+    color: #fff;
+}
+
+body.blue-theme .float-sidebar {
+    background-color: rgba(230, 247, 255, 0.95);
+    border-color: #99ccff;
+}
+
+body.blue-theme .float-sidebar select {
+    background-color: #e6f7ff;
+    color: #003366;
+    border-color: #99ccff;
+}
+
+body.blue-theme .blog-post,
+body.blue-theme .blog-content {
+    background: #fff;
+    color: #003366;
+}
+
+body.blue-theme .toc-sidebar {
+    background: #e6f7ff;
+    color: #003366;
+}
+
+body.blue-theme .back-to-top {
+    background-color: #003366;
+    color: #fff;
+}
+
+body.blue-theme .back-to-top:hover {
+    background-color: #00509e;
+}
+
+/* Cappuccino Mocha 主题 */
+body.cappuccino-mocha-theme {
+    background-color: #4b3832; /* 深棕色背景 */
+    color: #fff5e1; /* 浅米色文字 */
+}
+
+body.cappuccino-mocha-theme header,
+body.cappuccino-mocha-theme footer {
+    background-color: #3b2a24; /* 更深的棕色 */
+    color: #fff5e1; /* 浅米色文字 */
+}
+
+body.cappuccino-mocha-theme .float-sidebar {
+    background-color: rgba(75, 56, 50, 0.95); /* 深棕色 */
+    border-color: #6b4f4a; /* 棕色边框 */
+}
+
+body.cappuccino-mocha-theme .float-sidebar select {
+    background-color: #4b3832; /* 深棕色 */
+    color: #fff5e1; /* 浅米色文字 */
+    border-color: #6b4f4a; /* 棕色边框 */
+}
+
+body.cappuccino-mocha-theme .blog-post,
+body.cappuccino-mocha-theme .blog-content {
+    background: #5a453f; /* 中等棕色 */
+    color: #fff5e1; /* 浅米色文字 */
+}
+
+body.cappuccino-mocha-theme .toc-sidebar {
+    background: #5a453f; /* 中等棕色 */
+    color: #fff5e1; /* 浅米色文字 */
+}
+
+body.cappuccino-mocha-theme .back-to-top {
+    background-color: #4b3832; /* 深棕色 */
+    color: #fff5e1; /* 浅米色文字 */
+}
+
+body.cappuccino-mocha-theme .back-to-top:hover {
+    background-color: #6b4f4a; /* 更深的棕色 */
+}
+
+body.cappuccino-mocha-theme .social-links a {
+    color: #fff5e1; /* 浅米色文字 */
+}
+
+body.cappuccino-mocha-theme .social-links a:hover {
+    color: #d4a373; /* 浅棕色 */
+}
+
+/* Cappuccino Mocha 主题下的链接颜色 */
+body.cappuccino-mocha-theme a {
+    color: #d4a373; /* 浅棕色链接 */
+}
+
+body.cappuccino-mocha-theme a:hover {
+    color: #e6b983; /* 更亮的浅棕色 */
+}
+
+/* Cappuccino Mocha 主题下的标题颜色 */
+body.cappuccino-mocha-theme h1,
+body.cappuccino-mocha-theme h2,
+body.cappuccino-mocha-theme h3,
+body.cappuccino-mocha-theme h4,
+body.cappuccino-mocha-theme h5,
+body.cappuccino-mocha-theme h6 {
+    color: #ffffff; /* 白色标题 */
+}
+
+/* Cappuccino Mocha 主题下的代码块样式 */
+body.cappuccino-mocha-theme pre {
+    background-color: #3b2a24; /* 深棕色背景 */
+    color: #fff5e1; /* 浅米色文字 */
+    border: 1px solid #6b4f4a; /* 棕色边框 */
+}
+
+body.cappuccino-mocha-theme code {
+    background-color: #3b2a24; /* 深棕色背景 */
+    color: #fff5e1; /* 浅米色文字 */
+}
